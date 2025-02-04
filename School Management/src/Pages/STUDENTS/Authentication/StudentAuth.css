@@ -1,90 +1,206 @@
-.Student_Auth_Container{
-    width: 100%;
-    display: flex;
-    height: auto;
-    font-family: "Roboto", serif;
-    font-weight: 700;
+.Student_Auth_Container {
+  width: 100%;
+  display: flex;
+  height: auto;
+  font-family: "Roboto", serif;
+}
+.Student_Left_Auth,
+.Student_Right_Auth {
+  width: 50%;
+}
+.Student_Left_Auth {
+  background-color: #01427a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 98vh;
+}
+.login_box {
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.15);
+  padding: 10px 51px 10px 51px;
+  border-radius: 5px;
+}
+.Login_input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+.pswd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pswd p {
+  font-size: 12px;
+  color: #00000080;
+  font-weight: 700;
+}
+.Login_input label {
+  font-size: 12px;
+  font-weight: 700;
+}
 
+.Login_input input {
+  background-color: #f0eeed;
+  border: none;
+  max-width: 478px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 400;
+  color: #00000033;
+  font-size: 12px;
 }
-.Student_Left_Auth,.Student_Right_Auth{
-    width: 50%;
+.Login_input .username {
+  margin-top: 10px;
 }
-.Student_Left_Auth{
-    background-color: #ffffff;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.toggle {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.toggle input {
+  flex: 1;
+  padding-right: 40px; /* Add padding to make space for the icon */
+}
+.eye {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.eye svg {
+  border: 1px solid rgba(34, 34, 34, 1);
+}
+.loginbtn {
+  display: block;
+  margin-top: 30px;
+}
+.loginbtn button {
+  width: 100%;
+  background-color: rgba(1, 66, 122, 1);
+  border-radius: 5px;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  padding: 10px 16px 10px 16px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.loginbtn button:hover {
+  background-color: rgba(1, 66, 122, 0.8);
+}
+.logo {
+  width: 100px;
+  height: 129px;
+}
+.logo img {
+  width: 100%;
+  object-fit: contain;
+}
+.login_form {
+  width: 300px;
+}
+.login_form h1 {
+  font-size: 40px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+.login_form .title p {
+  font-size: 12px;
+  line-height: 18.75px;
+  color: #00000080;
+  margin-top: 0;
+  font-weight: 700;
+}
+.Student_Right_Auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+.login_img {
+  object-fit: contain;
+  max-width: 827.57px;
+  max-height: 473.84px;
+}
+.Student_Left_Auth img {
+  border-color: #4084b1;
+  width: 90%;
+  height: auto;
+  padding: 0 10px 10px 20px;
+  margin-bottom: 40px;
+}
+.NoAccount {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+.NoAccount span {
+  color: rgba(244, 116, 88, 1);
+  cursor: pointer;
+}
+.NoAccount span:hover {
+  text-decoration: underline;
+}
+.error {
+  color: rgba(242, 100, 92, 1);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
 
+.Regtitle {
+  font-weight: 700;
 }
-.login_box{
-    box-shadow: 0px 19px 40px 0px #0000000D;
-    padding:30px 30px 30px 30px;
+.Regtitle p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+  margin-top: 0;
+}
+.Regtitle h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
 
+.rolebtn {
+  margin-top: 40px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.Login_input{
-    display: flex;
-    flex-direction: column;
-}
-.Login_input label{
-    font-size: 12px;
-}
-.Login_input input{
-    background-color: #FFF6F4;
-    border: none;
-}
-.forgot_pswd{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.forgot_pswd p{
-    font-size: 10px;
-    color: #00000080;
 
+.Reg_box {
+  padding: 81px 51px 81px 51px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.15);
 }
-.logo{
-    width:120px;
-    height: 129px;
-}
-.loginbtn{
-    text-align: center;
-}
-.logo img{
-    width: 100%;
-    object-fit: contain;
-}
-.login_form{
-    width: 300px;
-}
-.login_form .title p{
-    font-size: 12px;
-    line-height: 18.75px;
-    color: #00000080;
 
-     
+.rolebtn .teacher {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(1, 66, 122, 1);
+  border: 1px solid rgba(1, 66, 122, 1);
 }
-.Student_Right_Auth{
-    background-color: #4084B1;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    display: flex;
-    flex-direction: column ;
-    align-items: center;
-    justify-content: flex-end;
-    height:98vh
+.rolebtn .student {
+  color: rgba(1, 66, 122, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(1, 66, 122, 1);
 }
-.login_img{
-    object-fit: contain;
-    max-width: 827.57px;
-    max-height: 473.84px;
+.rolebtn button {
+  border-radius: 5px;
+  padding: 10px 16px 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
 }
-.Student_Right_Auth img{
-    border-color: #4084B1;
-    width: 90%;
-    height: auto;
-    padding:0 10px 10px 20px;
-    margin-bottom: 40px;
+.rolebtn .teacher:hover {
+  background-color: rgba(1, 66, 122, 0.8);
+}
+.rolebtn .student:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(1, 66, 122, 1);
 }

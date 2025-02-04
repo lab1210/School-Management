@@ -1,14 +1,22 @@
 import React from 'react'
 import "./App.css"
-import Login from './Pages/STUDENTS/Authentication/Login'
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+import StudentLogin from './Pages/STUDENTS/Authentication/StudentLogin'
+import Register from './Pages/STUDENTS/Authentication/Register';
 const App = () => {
   return (
     <>
+    <BrowserRouter>
+    
      <div className='Desktop_Tablet'>
-      <Login/>
+      <Routes>
+        <Route path='/login' element={<StudentLogin/>}/>
+        <Route path='/' element={<Register/>}/>
+      </Routes>
     </div>
     <div className='Mobile'>
   </div>
+    </BrowserRouter>
     </>
    
   )

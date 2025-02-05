@@ -5,7 +5,7 @@ const Left_Auth = () => {
   return (
     <div className="Student_Left_Auth">
       <div className="login_img">
-        <img src="./loginimage.svg" alt="" />
+        <img src="/loginimage.svg" alt="" />
       </div>
     </div>
   );

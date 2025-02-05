@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import "./StudentAuth.css";
+import Left_Auth from "../Components/Left_Auth";
 import { PiEyeLight } from "react-icons/pi";
 import { IoEyeOffOutline } from "react-icons/io5";
-import Left_Auth from "../../../Components/Left_Auth";
+import "../Pages/STUDENTS/Authentication/StudentAuth.css";
 import { Link } from "react-router-dom";
-const StudentLogin = ({ showpassword, togglePasswordVisibility }) => {
-  const [username, setUsername] = useState("");
-  const [Password, setPassword] = useState("");
-  const [usernameerror, setUsernameerror] = useState("");
-  const [passworderror, setPassworderror] = useState("");
+const GeneralRegistration = ({ showpassword, togglePasswordVisibility }) => {
+  const [schoolid, setSchoolid] = useState("");
+  const [Pin, setPin] = useState("");
+  const [schooliderror, setSchooliderror] = useState("");
+  const [pinerror, setPinerror] = useState("");
 
   //Handle Form Submission
   const handleSubmit = async e => {
     e.preventDefault();
-    setUsernameerror("");
-    setPassworderror("");
+    setSchooliderror("");
+    setPinerror("");
 
     let valid = true;
-    if (!username) {
-      setUsernameerror("Username is required");
+    if (!schoolid) {
+      setSchooliderror("School ID is required");
       valid = false;
     }
 
     if (!password) {
-      setPassworderror("Password is required");
+      setPinerror("Pin is required");
       valid = false;
     }
 
@@ -35,21 +35,21 @@ const StudentLogin = ({ showpassword, togglePasswordVisibility }) => {
       const reponse = await fetch("Submit_API_URL", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, Password })
+        body: JSON.stringify({ schoolid, Pin })
       });
       if (!response.ok) {
         const errorData = await response.json();
-        if (errorData.error === "Invalid Username") {
-          setUsernameerror(errorData.message);
-        } else if (errorData.error === "Invalid Password") {
-          setPassworderror(errorData.message);
+        if (errorData.error === "School ID does not exist") {
+          setSchooliderror(errorData.message);
+        } else if (errorData.error === "Invalid Pin or used OTP") {
+          setPinerror(errorData.message);
         } else {
           throw new Error("Something went wrong");
         }
       } else {
         const data = await response.json();
-        // Handle successful login
-        console.log("Login successful", data);
+        // Handle successful registration
+        console.log("Registration successful", data);
         // history.push("/dashboard");
       }
     } catch (error) {
@@ -61,43 +61,40 @@ const StudentLogin = ({ showpassword, togglePasswordVisibility }) => {
     <div className="Student_Auth_Container">
       <Left_Auth />
       <div className="Student_Right_Auth">
-        <div className="login_box">
-          <div className="logo">
-            <img src="./logo 1.svg" alt="" />
-          </div>
+        <div className="Reg_box2">
           <div className="login_form">
-            <div className="title">
-              <p>Welcome to Foursquare Management System</p>
+            <div className="Regtitle2">
+              <h1>Register Now</h1>
+              <p>Kindly provide the requested information to register.</p>
             </div>
-            <h1>Log in</h1>
-            <form onSubmit={handleSubmit}>
+            <form>
               <div className="Login_input ">
-                <label htmlFor="Username">Username</label>
+                <label htmlFor="SchoolID">School ID</label>
                 <input
                   className="username"
                   type="text"
-                  value={username}
-                  placeholder="Enter Username"
-                  onChange={e => setUsername(e.target.value)}
+                  value={schoolid}
+                  placeholder="Enter School ID"
+                  onChange={e => setSchoolid(e.target.value)}
                   required
                 />
-                {usernameerror &&
+                {schooliderror &&
                   <p className="error">
-                    {usernameerror}
+                    {schooliderror}
                   </p>}
               </div>
+
               <div className="Login_input ">
                 <div className="pswd">
-                  <label htmlFor="Password">Password</label>
-                  {passworderror && <p>Forgot Password?</p>}
+                  <label htmlFor="Pin">Pin</label>
                 </div>
                 <div className="toggle">
                   <input
-                    className={passworderror ? "" : "username"}
+                    className="username"
                     type={showpassword ? "text" : "password"}
-                    placeholder="Enter Password"
-                    value={Password}
-                    onChange={e => setPassword(e.target.value)}
+                    placeholder="Enter Pin"
+                    value={Pin}
+                    onChange={e => setPin(e.target.value)}
                     required
                   />
 
@@ -113,19 +110,19 @@ const StudentLogin = ({ showpassword, togglePasswordVisibility }) => {
                         onClick={togglePasswordVisibility}
                       />}
                 </div>
-                {passworderror &&
+                {pinerror &&
                   <p className="error">
-                    {passworderror}
+                    {pinerror}
                   </p>}
               </div>
               <div className="loginbtn">
-                <button type="submit">LOG IN</button>
+                <button type="submit">Register</button>
               </div>
             </form>
             <p className="NoAccount">
-              Don't have an account?
-              <Link to="/Register/Role">
-                <span>Register now</span>
+              Already Registered?
+              <Link to="/">
+                <span>Log In here</span>
               </Link>
             </p>
           </div>
@@ -135,4 +132,4 @@ const StudentLogin = ({ showpassword, togglePasswordVisibility }) => {
   );
 };
 
-export default StudentLogin;
+export default GeneralRegistration;
